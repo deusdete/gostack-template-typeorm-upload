@@ -11,6 +11,8 @@ export default class CreateTransactions1615392309312
             name: 'id',
             type: 'uuid',
             isPrimary: true,
+            generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'title',
@@ -18,38 +20,25 @@ export default class CreateTransactions1615392309312
           },
           {
             name: 'value',
-            type: 'int',
-            isNullable: true,
+            type: 'decimal',
+            precision: 10,
+            scale: 2,
           },
           {
             name: 'type',
             type: 'varchar',
           },
-          // {
-          //   name: 'category_id',
-          //   type: 'uuid',
-          // },
           {
             name: 'created_at',
-            type: 'date',
+            type: 'timestamp',
             default: 'now()',
           },
           {
             name: 'updated_at',
-            type: 'date',
+            type: 'timestamp',
             default: 'now()',
           },
         ],
-        // foreignKeys: [
-        //   {
-        //     name: 'FKCategory',
-        //     referencedTableName: 'categories',
-        //     referencedColumnNames: ['id'],
-        //     columnNames: ['category_id'],
-        //     onDelete: 'CASCADE',
-        //     onUpdate: 'CASCADE',
-        //   },
-        // ],
       }),
     );
   }
